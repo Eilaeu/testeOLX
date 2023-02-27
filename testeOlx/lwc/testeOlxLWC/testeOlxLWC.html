@@ -1,0 +1,24 @@
+<template>
+	<div class="slds-m-around_medium">
+		<lightning-input  type="text" label="Insira o CEP a ser consultado:" value={cep} onchange={handleAccountNameChange} pattern="[0-9]*"
+			maxlength="8"></lightning-input>
+           
+		<br />
+		<lightning-button label="Consulta CEP" variant="brand" onclick={consultaCEP}></lightning-button>
+	</div>
+	<template if:true={apiResult}>
+		<div class="slds-m-around_medium">
+			<div class="slds-m-around_medium">
+                <p><strong>CEP:</strong> {apiResult.cep}</p>
+                <p><strong>Logradouro:</strong> {apiResult.logradouro}</p>
+                <p><strong>Número:</strong> {apiResult.numero}</p>
+                <p><strong>Complemento:</strong> {apiResult.complemento}</p>
+                <p><strong>Bairro:</strong> {apiResult.bairro}</p>
+                <p><strong>Localidade:</strong> {apiResult.localidade}</p>
+                <p><strong>UF:</strong> {apiResult.uf}</p>
+            </div>
+			<br />
+			<lightning-button label="Atualizar Contato" variant="brand" onclick={atualizaSobject}></lightning-button>
+		</div>
+	</template>
+</template>
